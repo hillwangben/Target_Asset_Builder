@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "target-asset-builder"
+version = "1.2.0"
+description = "多模态军事目标数据采集系统 - 支持灵活参数配置和采集限制"
+readme = "ReadMe.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "click>=8.1",
+    "httpx>=0.27",
+    "PyGithub>=2.3",
+    "Pillow>=10.0",
+    "opencv-python-headless>=4.9",
+    "mutagen>=1.47",
+    "pydantic>=2.5",
+    "pyyaml>=6.0",
+    "rich>=13.7",
+    "aiofiles>=23.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.scripts]
+tab = "src.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

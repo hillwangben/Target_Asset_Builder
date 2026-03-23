@@ -1,0 +1,31 @@
+[
+  {
+    "country": "USA",
+    "type": "airplane",
+    "model": "F-22",
+    "sensor": "visible",
+    "keywords": ["F-22 Raptor military aircraft"],
+    "source": "github",
+    "max_count": 10,
+    "max_duration_seconds": 60
+  },
+  {
+    "country": "USA",
+    "type": "airplane",
+    "model": "B-2",
+    "sensor": "visible",
+    "keywords": ["B-2 Spirit bomber"],
+    "source": "github",
+    "max_count": 5
+  },
+  {
+    "keywords": ["military vehicle dataset"],
+    "source": "github",
+    "max_count": 20
+  },
+  {
+    "country": "China",
+    "keywords": ["naval ship imagery"],
+    "source": "github"
+  }
+]

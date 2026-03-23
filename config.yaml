@@ -1,0 +1,86 @@
+# Target Asset Builder 配置文件
+
+# 存储配置
+storage:
+  # 数据根目录
+  root_dir: "./data"
+  # 目录索引文件名
+  catalog_file: "catalog.json"
+
+# 数据源配置
+sources:
+  github:
+    # GitHub Token（可选，未认证用户 API 限制 60次/小时，认证用户 5000次/小时）
+    token: ""
+    # 搜索每页结果数（最大 100）
+    per_page: 30
+    # 最大搜索页数
+    max_pages: 5
+
+  # 通用 URL 数据源配置
+  url:
+    # 请求超时（秒）
+    timeout: 30
+    # 最大重试次数
+    max_retries: 3
+
+# 下载配置
+download:
+  # 并发下载数
+  concurrency: 5
+  # 单文件最大大小（MB），0 表示不限制
+  max_file_size_mb: 100
+  # 下载超时（秒）
+  timeout: 120
+  # 重试次数
+  max_retries: 3
+
+# 采集限制配置
+limits:
+  # 默认最大采集数量（每个任务），null 表示不限制
+  default_max_count: null
+  # 默认最大采集时长（秒），null 表示不限制
+  default_max_duration: null
+
+# 分辨率过滤配置
+filters:
+  resolution:
+    # 是否启用分辨率过滤
+    enabled: true
+    # 最小宽度（像素），0 表示不限制
+    min_width: 0
+    # 最小高度（像素），0 表示不限制
+    min_height: 0
+    # 最小维度（像素），取宽和高中的较小值，0 表示不限制
+    min_dimension: 0
+
+# 分类规则
+categories:
+  # 支持的目标类型
+  types:
+    - airplane    # 飞机
+    - ship        # 舰船
+    - vehicle     # 车辆
+    - satellite   # 卫星
+    - missile     # 导弹
+    - radar       # 雷达
+
+  # 支持的传感器类型
+  sensors:
+    - visible         # 可见光
+    - ir              # 红外
+    - sar             # SAR
+    - remote_sensing  # 遥感
+
+  # 支持的媒体类型
+  media_types:
+    - image
+    - video
+    - audio
+
+# 日志配置
+logging:
+  # 日志级别: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  # 日志文件路径，空字符串表示仅输出到终端
+  file: ""
