@@ -1,0 +1,22 @@
+[
+  {
+    "country": "USA",
+    "type": "ship",
+    "model": "US-Navy",
+    "sensor": "visible",
+    "keywords": [
+      "https://images.unsplash.com/photo-1579517142605-52d5c5d7e39c?w=800",
+      "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800",
+      "https://images.unsplash.com/photo-1599231567762-3b9c79afd0b8?w=800",
+      "https://images.unsplash.com/photo-1605218427360-36390f854336?w=800",
+      "https://images.unsplash.com/photo-1582967788606-a171f1080ca8?w=800",
+      "https://images.unsplash.com/photo-1559863483-345330afffb5?w=800",
+      "https://images.unsplash.com/photo-1529243856184-4f86dabe2d98?w=800",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+      "https://images.unsplash.com/photo-1516937941344-00b4ec7330f5?w=800",
+      "https://images.unsplash.com/photo-1506619216599-9d16d47c432b?w=800"
+    ],
+    "source": "url",
+    "max_count": 10
+  }
+]

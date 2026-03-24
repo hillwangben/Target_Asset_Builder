@@ -4,8 +4,8 @@ build-backend = "setuptools.backends._legacy:_Backend"
 
 [project]
 name = "target-asset-builder"
-version = "1.2.0"
-description = "多模态军事目标数据采集系统 - 支持灵活参数配置和采集限制"
+version = "1.4.0"
+description = "多模态军事目标数据采集系统 - 支持格式规范化和合法性校验"
 readme = "ReadMe.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}

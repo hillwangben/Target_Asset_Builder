@@ -9,6 +9,7 @@ storage:
 
 # 数据源配置
 sources:
+  # GitHub 数据源
   github:
     # GitHub Token（可选，未认证用户 API 限制 60次/小时，认证用户 5000次/小时）
     token: ""
@@ -23,6 +24,31 @@ sources:
     timeout: 30
     # 最大重试次数
     max_retries: 3
+
+  # 网页搜索数据源配置
+  web:
+    # 请求超时（秒）
+    timeout: 30
+    # 最大重试次数
+    max_retries: 3
+    # User-Agent（可选，留空使用默认）
+    user_agent: ""
+
+  # HuggingFace 数据源配置
+  huggingface:
+    # 请求超时（秒）
+    timeout: 30
+    # 最大重试次数
+    max_retries: 3
+
+  # 多源采集配置
+  multi:
+    # 启用的数据源列表（可选: github, url, web, huggingface）
+    enabled_sources:
+      - github
+      - web
+    # 是否并行搜索多个数据源
+    parallel_search: true
 
 # 下载配置
 download:
@@ -77,6 +103,30 @@ categories:
     - image
     - video
     - audio
+
+# 格式规范化配置
+format:
+  # 是否启用格式规范化
+  normalize: true
+  # 图片目标格式 (jpg, png, webp)
+  image_format: "jpg"
+  # 视频目标格式 (mp4, avi, mkv)
+  video_format: "mp4"
+  # 音频目标格式 (mp3, wav, flac)
+  audio_format: "mp3"
+
+# 合法性校验配置
+validation:
+  # 是否启用校验
+  enabled: true
+  # 文件完整性校验（确保下载完整，未损坏）
+  check_integrity: true
+  # 内容安全校验（检测文件头魔术字节）
+  check_safety: true
+  # MIME类型一致性校验
+  check_mime_type: true
+  # 最小音频时长（秒），0 表示不限制
+  min_audio_duration: 0
 
 # 日志配置
 logging:

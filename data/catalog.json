@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-24T19:47:43Z",
+  "assets": [
+    {
+      "id": "af7cca567d09cee50e5210f5ce490de2b408d5b05c897ceb39d00e9ac4cc063b",
+      "country": "USA",
+      "type": "ship",
+      "model": "US-Navy",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 800,
+        "height": 531
+      },
+      "file_path": "ship/USA/US-Navy/visible/images/unknown_file.jpg",
+      "file_size": 45198,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800"
+      },
+      "collected_at": "2026-03-24T19:46:51Z"
+    },
+    {
+      "id": "ff9c6be802457a594631ab60619f9bfabf6a03e9bcf99a74738eb06dae4a66e7",
+      "country": "USA",
+      "type": "ship",
+      "model": "US-Navy",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 800,
+        "height": 1200
+      },
+      "file_path": "ship/USA/US-Navy/visible/images/unknown_file_1.jpg",
+      "file_size": 64758,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+      },
+      "collected_at": "2026-03-24T19:47:28Z"
+    }
+  ],
+  "stats": {
+    "total_files": 2,
+    "total_size": 109956,
+    "by_country": {
+      "USA": 2
+    },
+    "by_type": {
+      "ship": 2
+    },
+    "by_media": {
+      "image": 2
+    }
+  }
+}

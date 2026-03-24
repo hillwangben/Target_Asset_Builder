@@ -34,9 +34,14 @@ from src.models import (
 from src.sources.base import DataSource
 from src.sources.github_source import GitHubSource
 from src.sources.url_source import UrlSource
+from src.sources.web_source import WebSearchSource
+from src.sources.huggingface_source import HuggingFaceSource
+from src.sources.multi_source import MultiSourceCollector
 from src.storage import StorageManager
 from src.utils.downloader import AsyncDownloader
+from src.utils.format_converter import FormatConverter
 from src.utils.hashing import compute_file_hash
+from src.utils.validator import FileValidator, check_audio_duration
 
 logger = logging.getLogger(__name__)
 
@@ -57,6 +62,21 @@ class Collector:
             min_height=config.filters.resolution.min_height,
             min_dimension=config.filters.resolution.min_dimension,
         )
+        # 初始化格式转换器
+        self._format_converter = FormatConverter(
+            normalize=config.format.normalize,
+            image_format=config.format.image_format,
+            video_format=config.format.video_format,
+            audio_format=config.format.audio_format,
+        )
+        # 初始化合法性校验器
+        self._validator = FileValidator(
+            enabled=config.validation.enabled,
+            check_integrity=config.validation.check_integrity,
+            check_safety=config.validation.check_safety,
+            check_mime_type=config.validation.check_mime_type,
+            min_audio_duration=config.validation.min_audio_duration,
+        )
         self._stats = CollectionStats()
 
     def _create_source(self, source_name: str) -> DataSource:
@@ -74,6 +94,30 @@ class Collector:
                 timeout=url_cfg.timeout,
                 max_retries=url_cfg.max_retries,
             )
+        elif source_name == "web":
+            web_cfg = self._config.sources.web
+            return WebSearchSource(
+                timeout=web_cfg.timeout,
+                max_retries=web_cfg.max_retries,
+                user_agent=web_cfg.user_agent or None,
+            )
+        elif source_name == "huggingface":
+            hf_cfg = self._config.sources.huggingface
+            return HuggingFaceSource(
+                timeout=hf_cfg.timeout,
+                max_retries=hf_cfg.max_retries,
+            )
+        elif source_name == "multi":
+            # 多源采集：同时使用多个数据源
+            multi_cfg = self._config.sources.multi
+            sources = []
+            for src_name in multi_cfg.enabled_sources:
+                if src_name != "multi":  # 避免递归
+                    try:
+                        sources.append(self._create_source(src_name))
+                    except ValueError:
+                        logger.warning(f"未知的数据源: {src_name}")
+            return MultiSourceCollector(sources)
         else:
             raise ValueError(f"未知的数据源: {source_name}")
 
@@ -173,6 +217,49 @@ class Collector:
                             self._stats.skipped += 1
                             progress.advance(overall_task)
                             continue
+
+                        # 合法性校验
+                        validation_result = self._validator.validate(
+                            downloaded,
+                            item.media_type,
+                        )
+                        if not validation_result.valid:
+                            logger.warning(f"合法性校验失败: {item.filename} - {validation_result.error}")
+                            self._storage.remove_file(downloaded)
+                            self._stats.skipped += 1
+                            progress.advance(overall_task)
+                            continue
+
+                        # 格式规范化转换
+                        converted = self._format_converter.convert(downloaded, item.media_type)
+                        if converted is None and downloaded.suffix.lower() != converted.suffix.lower() if converted else False:
+                            # 转换失败且原文件被删除
+                            logger.warning(f"格式转换失败，跳过: {item.filename}")
+                            self._storage.remove_file(downloaded)
+                            self._stats.failed += 1
+                            progress.advance(overall_task)
+                            continue
+                        if converted and converted != downloaded:
+                            downloaded = converted
+                            # 更新分辨率信息（格式转换可能改变分辨率）
+                            passed, resolution = self._resolution_filter.check_file(
+                                downloaded, item.media_type
+                            )
+                            if not passed:
+                                logger.info(f"转换后分辨率不达标，跳过: {downloaded.name}")
+                                self._storage.remove_file(downloaded)
+                                self._stats.skipped += 1
+                                progress.advance(overall_task)
+                                continue
+
+                        # 音频时长校验
+                        if item.media_type == MediaType.AUDIO:
+                            if not check_audio_duration(downloaded, self._config.validation.min_audio_duration):
+                                logger.info(f"音频时长不达标，跳过: {downloaded.name}")
+                                self._storage.remove_file(downloaded)
+                                self._stats.skipped += 1
+                                progress.advance(overall_task)
+                                continue
 
                         # 计算文件哈希
                         file_hash = compute_file_hash(downloaded)

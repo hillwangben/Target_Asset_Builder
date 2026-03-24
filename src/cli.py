@@ -89,8 +89,8 @@ def main(ctx: click.Context, config: Optional[str], verbose: bool):
 )
 @click.option(
     "--source", "source_name", default="github",
-    type=click.Choice(["github", "url"], case_sensitive=False),
-    help="数据源",
+    type=click.Choice(["github", "url", "web", "huggingface", "multi"], case_sensitive=False),
+    help="数据源（github=GitHub仓库, url=直接URL, web=网页搜索, huggingface=HuggingFace数据集, multi=多源综合）",
 )
 @click.option(
     "--keywords", "-k", multiple=True, required=True,

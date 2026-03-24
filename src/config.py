@@ -28,10 +28,38 @@ class UrlSourceConfig(BaseModel):
     max_retries: int = 3
 
 
+class WebSourceConfig(BaseModel):
+    """网页搜索数据源配置"""
+    timeout: int = 30
+    max_retries: int = 3
+    user_agent: str = ""
+
+
+class HuggingFaceSourceConfig(BaseModel):
+    """HuggingFace 数据源配置"""
+    timeout: int = 30
+    max_retries: int = 3
+
+
+class MultiSourceConfig(BaseModel):
+    """多源采集配置"""
+    enabled_sources: list[str] = Field(
+        default_factory=lambda: ["github", "web"],
+        description="启用的数据源列表"
+    )
+    parallel_search: bool = Field(
+        default=True,
+        description="是否并行搜索多个数据源"
+    )
+
+
 class SourcesConfig(BaseModel):
     """数据源配置"""
     github: GitHubSourceConfig = Field(default_factory=GitHubSourceConfig)
     url: UrlSourceConfig = Field(default_factory=UrlSourceConfig)
+    web: WebSourceConfig = Field(default_factory=WebSourceConfig)
+    huggingface: HuggingFaceSourceConfig = Field(default_factory=HuggingFaceSourceConfig)
+    multi: MultiSourceConfig = Field(default_factory=MultiSourceConfig)
 
 
 class DownloadConfig(BaseModel):
@@ -80,6 +108,23 @@ class LoggingConfig(BaseModel):
     file: str = ""
 
 
+class FormatConfig(BaseModel):
+    """格式规范化配置"""
+    normalize: bool = Field(default=True, description="是否启用格式规范化")
+    image_format: str = Field(default="jpg", description="图片目标格式")
+    video_format: str = Field(default="mp4", description="视频目标格式")
+    audio_format: str = Field(default="mp3", description="音频目标格式")
+
+
+class ValidationConfig(BaseModel):
+    """合法性校验配置"""
+    enabled: bool = Field(default=True, description="是否启用校验")
+    check_integrity: bool = Field(default=True, description="文件完整性校验")
+    check_safety: bool = Field(default=True, description="内容安全校验（魔术字节）")
+    check_mime_type: bool = Field(default=True, description="MIME类型一致性校验")
+    min_audio_duration: int = Field(default=0, description="最小音频时长（秒）")
+
+
 class AppConfig(BaseModel):
     """全局应用配置"""
     storage: StorageConfig = Field(default_factory=StorageConfig)
@@ -88,6 +133,8 @@ class AppConfig(BaseModel):
     filters: FiltersConfig = Field(default_factory=FiltersConfig)
     limits: LimitsConfig = Field(default_factory=LimitsConfig)
     categories: CategoriesConfig = Field(default_factory=CategoriesConfig)
+    format: FormatConfig = Field(default_factory=FormatConfig)
+    validation: ValidationConfig = Field(default_factory=ValidationConfig)
     logging: LoggingConfig = Field(default_factory=LoggingConfig)
 
 

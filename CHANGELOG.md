@@ -1,5 +1,97 @@
 # 更新日志
 
+## [1.4.0] - 2026-03-24
+
+### 新增功能
+
+- 🛡️ **格式规范化**: 自动将非主流格式转换为主流格式
+  - **图片**: WebP→JPG、HEIC→JPG、TIFF→JPG、BMP→JPG、GIF→JPG、ICO→PNG
+  - **视频**: WebM→MP4、FLV→MP4、AVI→MP4、MKV→MP4
+  - **音频**: WAV→MP3、FLAC→MP3、M4A→MP3
+
+- 🔍 **合法性校验**: 多层次文件安全检查
+  - **完整性校验**: 确保文件完整、未损坏
+  - **内容安全校验**: 通过魔术字节检测恶意文件、可疑内容（JavaScript注入、PHP脚本、PE/ELF可执行文件等）
+  - **媒体类型一致性校验**: 验证文件内容与声明类型匹配（如图片实际是视频则报错）
+  - **音频时长校验**: 检查音频文件是否满足最低时长要求
+
+### 配置更新
+
+```yaml
+# 格式规范化配置
+format:
+  normalize: true        # 是否启用格式规范化
+  image_format: "jpg"   # 图片目标格式
+  video_format: "mp4"   # 视频目标格式
+  audio_format: "mp3"   # 音频目标格式
+
+# 合法性校验配置
+validation:
+  enabled: true         # 是否启用校验
+  check_integrity: true # 文件完整性校验
+  check_safety: true    # 内容安全校验
+  check_mime_type: true # MIME类型一致性校验
+  min_audio_duration: 0 # 最小音频时长（秒）
+```
+
+### 文件变更
+
+- `src/config.py`: 新增 FormatConfig、ValidationConfig 配置类
+- `config.yaml`: 添加 format 和 validation 配置节
+- `src/utils/format_converter.py`: 新增格式转换模块
+- `src/utils/validator.py`: 新增合法性校验模块
+- `src/collector.py`: 集成格式转换和校验流程
+- `ReadMe.md`: 更新文档添加格式规范化和校验说明
+- `CHANGELOG.md`: 本文件
+
+---
+
+## [1.3.0] - 2026-03-23
+
+### 新增功能
+
+- 🚀 **多源数据采集**: 扩展搜索范围，支持多种数据源
+  - **Web 网页搜索**: 自动从网页中提取图片、视频、音频链接
+  - **HuggingFace 数据集**: 从 HuggingFace 数据集下载资源
+  - **多源综合采集**: 同时从多个数据源并行采集，提高效率
+
+- 📊 **数据源类型**:
+  - `github`: GitHub 仓库搜索（原有）
+  - `url`: 直接 URL 下载（原有）
+  - `web`: 网页搜索（新增）
+  - `huggingface`: HuggingFace 数据集（新增）
+  - `multi`: 多源综合采集（新增）
+
+### 使用示例
+
+```bash
+# 从网页搜索采集
+tab collect --source web --keywords "https://example.com/gallery.html"
+
+# 从 HuggingFace 数据集采集
+tab collect --source huggingface --keywords "username/dataset-name"
+
+# 多源综合采集（同时从 GitHub 和网页采集）
+tab collect --source multi --keywords "F-22 Raptor" --max-count 100
+```
+
+### 配置更新
+
+- `config.yaml`: 添加 web、huggingface、multi 数据源配置
+- `src/config.py`: 新增 WebSourceConfig、HuggingFaceSourceConfig、MultiSourceConfig
+
+### 文件变更
+
+- `src/sources/web_source.py`: 新增网页搜索数据源
+- `src/sources/huggingface_source.py`: 新增 HuggingFace 数据源
+- `src/sources/multi_source.py`: 新增多源综合采集器
+- `src/collector.py`: 支持新数据源创建
+- `src/cli.py`: 更新数据源选项
+- `ReadMe.md`: 更新文档添加多源采集说明
+- `CHANGELOG.md`: 本文件
+
+---
+
 ## [1.2.0] - 2026-03-23
 
 ### 新增功能

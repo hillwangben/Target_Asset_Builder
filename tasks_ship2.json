@@ -1,0 +1,22 @@
+[
+  {
+    "country": "USA",
+    "type": "ship",
+    "model": "US-Navy",
+    "sensor": "visible",
+    "keywords": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/USS_DDG-51.jpg/1280px-USS_DDG-51.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/USS_Nimitz_%28CVN-68%29.jpg/1280px-USS_Nimitz_%28CVN-68%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/USS_John_F._Kennedy_%28CV-67%29.jpg/1280px-USS_John_F._Kennedy_%28CV-67%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/USS_George_H.W._Bush_%28CVN-77%29.jpg/1280px-USS_George_H.W._Bush_%28CVN-77%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/USS_Enterprise_%28CVN-65%29.jpg/1024px-USS_Enterprise_%28CVN-65%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/USS_Gerald_R._Ford_%28CVN-78%29.jpg/1280px-USS_Gerald_R._Ford_%28CVN-78%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/USS_Carl_Vinson_%28CVN-70%29.jpg/1280px-USS_Carl_Vinson_%28CVN-70%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/USS_Theodore_Roosevelt_%28CVN-71%29.jpg/1280px-USS_Theodore_Roosevelt_%28CVN-71%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/USS_Abraham_Lincoln_%28CVN-72%29.jpg/1280px-USS_Abraham_Lincoln_%28CVN-72%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/USS_George_Washington_%28CVN-73%29.jpg/1280px-USS_George_Washington_%28CVN-73%29.jpg"
+    ],
+    "source": "url",
+    "max_count": 10
+  }
+]
