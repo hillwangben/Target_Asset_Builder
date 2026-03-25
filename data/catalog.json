@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-03-24T19:47:43Z",
+  "last_updated": "2026-03-25T16:16:54Z",
   "assets": [
     {
       "id": "af7cca567d09cee50e5210f5ce490de2b408d5b05c897ceb39d00e9ac4cc063b",
@@ -43,19 +43,189 @@
         "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
       },
       "collected_at": "2026-03-24T19:47:28Z"
+    },
+    {
+      "id": "84a57f351a6da98d16170b9061eba0dbd231c9532015cbb6a4ebbcf11d7ef425",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 1200,
+        "height": 799
+      },
+      "file_path": "airplane/France/Rafale/visible/images/rafale.jpg",
+      "file_size": 424792,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/rafale.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:00Z"
+    },
+    {
+      "id": "64fa6a5cf66b971c6ca096ab907e8d775e5fcbdb2d5060d45d03b2924790ee81",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 1768,
+        "height": 1035
+      },
+      "file_path": "airplane/France/Rafale/visible/images/mirage-2000.jpg",
+      "file_size": 269822,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-2000.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:47Z"
+    },
+    {
+      "id": "c776e3458bf93a3a3424e2cbedc15366434239ac9d307d8e579df7645c574990",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 3023,
+        "height": 2145
+      },
+      "file_path": "airplane/France/Rafale/visible/images/mirage-f1c.jpg",
+      "file_size": 1741153,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-f1c.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:49Z"
+    },
+    {
+      "id": "9210e6f98c2de2f6ba78c778fe5e902a4476c7faece8e067b01a474eb0fb4a75",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 2000,
+        "height": 1333
+      },
+      "file_path": "airplane/France/Rafale/visible/images/mirage-iii.jpg",
+      "file_size": 1640200,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-iii.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:50Z"
+    },
+    {
+      "id": "d46d507b754d153bcb76624736edc873f6fe64c4468ca7b0cc50840d5ef981a1",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 950,
+        "height": 633
+      },
+      "file_path": "airplane/France/Rafale/visible/images/mirage-iv.jpg",
+      "file_size": 355603,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-iv.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:50Z"
+    },
+    {
+      "id": "915f7a6e96d9caacedb1463bb21be908f5b4007522bb98725638754a99d1beb1",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 1080,
+        "height": 720
+      },
+      "file_path": "airplane/France/Rafale/visible/images/super-etendard.jpg",
+      "file_size": 136773,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/super-etendard.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:52Z"
+    },
+    {
+      "id": "46da872702dd084e27f2f265ed2c43031e7730560e61696c1c7cffea18873545",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 2970,
+        "height": 1980
+      },
+      "file_path": "airplane/France/Rafale/visible/images/falcon-7x-dassault.jpg",
+      "file_size": 3237699,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/falcon-7x-dassault.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:53Z"
+    },
+    {
+      "id": "810297e9c8e76abbe3d11e57f513bc7138077610258f04c114797e481ffee9a3",
+      "country": "France",
+      "type": "airplane",
+      "model": "Rafale",
+      "sensor": "visible",
+      "media_type": "image",
+      "format": "jpg",
+      "resolution": {
+        "width": 1600,
+        "height": 1066
+      },
+      "file_path": "airplane/France/Rafale/visible/images/neuron-dassault.jpg",
+      "file_size": 700310,
+      "source": {
+        "type": "url",
+        "repo": null,
+        "url": "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/neuron-dassault.jpg"
+      },
+      "collected_at": "2026-03-25T16:16:54Z"
     }
   ],
   "stats": {
-    "total_files": 2,
-    "total_size": 109956,
+    "total_files": 10,
+    "total_size": 8616308,
     "by_country": {
-      "USA": 2
+      "USA": 2,
+      "France": 8
     },
     "by_type": {
-      "ship": 2
+      "ship": 2,
+      "airplane": 8
     },
     "by_media": {
-      "image": 2
+      "image": 10
     }
   }
 }

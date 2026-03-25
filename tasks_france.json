@@ -1,0 +1,22 @@
+[
+  {
+    "country": "France",
+    "type": "airplane",
+    "model": "Rafale",
+    "sensor": "visible",
+    "keywords": [
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/rafale.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-2000.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-2000dn.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-f1c.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-iii.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/mirage-iv.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/alpha-jet.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/super-etendard.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/falcon-7x-dassault.jpg",
+      "https://media.githubusercontent.com/media/hakunnna2/aircraft/master/public/images/aircraft/neuron-dassault.jpg"
+    ],
+    "source": "url",
+    "max_count": 10
+  }
+]
